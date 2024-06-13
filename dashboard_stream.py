@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-import requests
 
 def chart_colors(left, right, cases):
     siz = 5
@@ -45,24 +44,24 @@ trade_history = 'data/trade_history.csv'
 
 
 # ##############################################################################################################################################
-# # Leer los datos
-# try:
-#     prop_ = pd.read_csv(prop_file, index_col=0, parse_dates=True)
-#     tt = pd.read_csv(tt_file, index_col=0)
-#     metrics = pd.read_csv(metrics_file, index_col=0)
-#     gold = pd.read_csv(gold_file, index_col=0)
-#     china = pd.read_csv(china_file, index_col=0)
-#     india = pd.read_csv(india_file, index_col=0)
-#     turkey = pd.read_csv(turkey_file, index_col=0)
-#     trade_history = pd.read_csv(trade_history)
+# Leer los datos
+try:
+    prop_ = pd.read_csv(prop_file, index_col=0, parse_dates=True)
+    tt = pd.read_csv(tt_file, index_col=0)
+    metrics = pd.read_csv(metrics_file, index_col=0)
+    gold = pd.read_csv(gold_file, index_col=0)
+    china = pd.read_csv(china_file, index_col=0)
+    india = pd.read_csv(india_file, index_col=0)
+    turkey = pd.read_csv(turkey_file, index_col=0)
+    trade_history = pd.read_csv(trade_history)
 
 
-# except Exception as e:
-#     st.error(f"Error loading data: {e}")
+except Exception as e:
+    st.error(f"Error loading data: {e}")
 
 
-# # Crear pestañas
-# tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
+# Crear pestañas
+tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
 
 # # Tab Home
 # with tab_home:
