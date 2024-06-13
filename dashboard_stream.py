@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+import datetime as dt
 
 def chart_colors(left, right, cases):
     siz = 5
@@ -75,7 +76,7 @@ with tab_home:
     st.title("Gold Strategy Dashboard")
 
 
-    last_world = gold.index.date()[-1]
+    last_world = gold.index.date[-1]
     market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
     market_state_current = gold['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
     st.write(f" Up to {last_world} world gold has been on a {market_state_current} state. The last update per market satate was {market_state_last}.")
