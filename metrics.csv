@@ -1,8 +1,8 @@
 ,Strategy Performance,Gold Performance
-Annual Return,9.90%,10.26%
-Annual Volatility,13.93%,15.80%
-Sharpe Ratio,0.75,0.70
-Sortino Ratio,1.10,1.00
-Max Drawdown,-19.17%,-21.21%
-CVaR,-2.11%,-2.26%
-VaR,-1.39%,-1.49%
+Annual Return,10.03%,11.92%
+Annual Volatility,13.06%,15.13%
+Sharpe Ratio,0.80,0.82
+Sortino Ratio,1.19,1.19
+Max Drawdown,-18.00%,-21.21%
+CVaR,-1.96%,-2.14%
+VaR,-1.28%,-1.42%
