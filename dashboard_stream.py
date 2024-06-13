@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import requests
 
 # Configurar Streamlit
-st.set_page_config(page_title="Gold Strategy", page_icon=":moneybag:", layout="wide")
+st.set_page_config(page_title="Gold Strategy", page_icon=":moneybag:", layout="wide", initial_sidebar_state="expanded")
 
 # Título
 st.title("Gold Strategy Dashboard")
@@ -24,7 +24,6 @@ try:
 
 except Exception as e:
     st.error(f"Error loading data: {e}")
-
 
 
 # Crear gráfica de Plotly
@@ -130,7 +129,7 @@ fig.add_trace(go.Scatter(
     y=prop_['str_cum_return'],
     mode='lines',
     line=dict(color='lightblue', width=1, dash='dot'), 
-    name='Strategy',
+    name='Strategy %',
     yaxis='y3',
     hoverinfo='y+name'
 ))
@@ -183,7 +182,3 @@ except Exception as e:
     st.error(f"Error displaying Financial Metrics: {e}")
 
 # Ejecutar Streamlit con `streamlit run app.py`
-
-# crar un modelo con base en fundamentales d ecad amoneda,  
-# suzi e tiene el problea opuesto a economis con deficit 
-# 
