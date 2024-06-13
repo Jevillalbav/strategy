@@ -55,13 +55,15 @@ try:
     turkey = pd.read_csv(turkey_file, index_col=0, parse_dates=True)
     trade_history = pd.read_csv(trade_history)
 
+    for df in [gold, china, india, turkey]:
+        df = df.loc[ prop_.index[0]: ].copy()
+
 
 except Exception as e:
     st.error(f"Error loading data: {e}")
 
 
-for df in [gold, china, india, turkey]:
-    df = df.loc[ prop_.index[0]: ]
+
 
 
 # Crear pestañas
