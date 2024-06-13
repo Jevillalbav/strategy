@@ -4,33 +4,26 @@ import plotly.graph_objects as go
 import requests
 
 # Configurar Streamlit
-st.set_page_config(page_title="Financial Dashboard", layout="wide")
+st.set_page_config(page_title="Gold Strategy", page_icon=":moneybag:", layout="wide")
 
 # Título
-st.title("Financial Dashboard")
+st.title("Gold Strategy Dashboard")
 
 # Leer datos desde archivos locales
-prop_file = 'https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/prop.csv' # 'prop.csv'
-tt_file = 'https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/trades.csv' # 'trades.csv'
-metrics_file ='https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/metrics.csv' # 'metrics.csv'
-
-# # Leer datos desde GitHub
-# prop_ = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/prop.csv', index_col=0, parse_dates=True)
-# tt = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/trades.csv', index_col=0)
-# metrics = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/metrics.csv', index_col=0)
-
+prop_file =  'prop.csv'
+tt_file =  'trades.csv'
+metrics_file = 'metrics.csv'
 
 
 # Leer los datos
 try:
-    # prop_ = pd.read_csv(prop_file, index_col=0, parse_dates=True)
-    # tt = pd.read_csv(tt_file, index_col=0)
-    # metrics = pd.read_csv(metrics_file, index_col=0)
+    prop_ = pd.read_csv(prop_file, index_col=0, parse_dates=True)
+    tt = pd.read_csv(tt_file, index_col=0)
+    metrics = pd.read_csv(metrics_file, index_col=0)
 
-
-    prop_ = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/prop.csv', index_col=0, parse_dates=True)
-    tt = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/trades.csv', index_col=0)
-    metrics = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/metrics.csv', index_col=0)
+    # prop_ = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/prop.csv', index_col=0, parse_dates=True)
+    # tt = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/trades.csv', index_col=0)
+    # metrics = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/metrics.csv', index_col=0)
 
 
 except Exception as e:
@@ -117,7 +110,6 @@ fig.add_trace(go.Scatter(
     text= 'Gold Price',
     hoverinfo='y+name'
 ))
-
 fig.add_trace(go.Scatter(
     x=prop_.index,
     y=prop_['gold'] * .99,
@@ -127,7 +119,6 @@ fig.add_trace(go.Scatter(
     text=prop_['long_signal'] * 500,
     hoverinfo='text+name'
 ))
-
 fig.add_trace(go.Scatter(
     x=prop_.index,
     y=prop_['gold'] * 1.01,
@@ -138,7 +129,6 @@ fig.add_trace(go.Scatter(
     hoverinfo='text+name',
     opacity=1
 ))
-
 fig.add_trace(go.Scatter(
     x=prop_.index,
     y=prop_['str_cum_return'],
@@ -148,7 +138,6 @@ fig.add_trace(go.Scatter(
     yaxis='y3',
     hoverinfo='y+name'
 ))
-
 fig.add_trace(go.Scatter(
     x=prop_.index,
     y=prop_['gold_cum_return'],
@@ -158,7 +147,6 @@ fig.add_trace(go.Scatter(
     yaxis='y3',
     hoverinfo='y+name'
 ))
-
 fig.add_trace(go.Scatter(
     x=prop_.index,
     y=prop_['oz_exp'],
@@ -171,8 +159,6 @@ fig.add_trace(go.Scatter(
     opacity=0.5,
     hoverinfo='y+name'
 ))
-
-
 fig.add_trace(go.Scatter(
     x = prop_.index,
     y = (prop_['oz_exp'] * 0) - 100 , 
@@ -183,6 +169,7 @@ fig.add_trace(go.Scatter(
     hoverinfo='name+x'))
 
 # Mostrar gráfica en Streamlit
+st.subheader("Main Chart : Strategy + Return + Current Position")
 st.plotly_chart(fig, use_container_width=True)
 
 # Mostrar tabla tt
@@ -201,3 +188,6 @@ except Exception as e:
 
 # Ejecutar Streamlit con `streamlit run app.py`
 
+# crar un modelo con base en fundamentales d ecad amoneda,  
+# suzi e tiene el problea opuesto a economis con deficit 
+# 
