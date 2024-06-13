@@ -19,7 +19,7 @@ def chart_colors(left, right, cases):
     yaxis_title= left.name,
     yaxis_tickformat = ',.0f',
     yaxis2 = dict(overlaying='y', side='right', showgrid=False, tickformat = ',.2f', title=right.name, zeroline=False),
-    width = 1200, height = 700, template='plotly_dark',  hovermode='x', showlegend=False)
+    width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
 
 ##############################################################################################################################################
@@ -78,7 +78,7 @@ with tab_home:
     last_world = gold.index.date[-1]
     market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
     market_state_current = gold['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
-    st.write(f" Up to {last_world} world gold has been on a {market_state_current} state. The last update per market satate was {market_state_last}.")
+    st.write(f" Up to {last_world} world gold has been on a {market_state_current} state. The last update per market state was {market_state_last}.")
     # Crear gráfica de Plotly
     fig = chart_colors( gold['ma_price'], gold['ma_volume'], gold['market_cases_'])
     fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
@@ -255,7 +255,7 @@ with tab_home:
 with tab_china:
     st.title("China's Market")
     
-    last_china = china.index[-1]
+    last_china = china.index.date[-1]
     market_state_china = china['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
 
     
@@ -272,7 +272,7 @@ with tab_china:
 with tab_india:
     st.title("India's Market")
     
-    last_india = india.index[-1]
+    last_india = india.index.date[-1]
     market_state_india = india['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
     st.write(f" India's Market State: {market_state_india} - Last Update: {last_india}")
     # Crear gráfica de Plotly
@@ -286,7 +286,7 @@ with tab_india:
 with tab_turkey:
     st.title("Turkey's Market")
     
-    last_turkey = turkey.index[-1]
+    last_turkey = turkey.index.date[-1]
     market_state_turkey = turkey['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
     st.write(f" Turkey's Market State: {market_state_turkey} - Last Update: {last_turkey}")
     # Crear gráfica de Plotly
