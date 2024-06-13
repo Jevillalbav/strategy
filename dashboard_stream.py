@@ -246,21 +246,21 @@ with tab_home:
     st.markdown("----")
 
 
-# with tab_china:
-#     st.title("China's Market")
+with tab_china:
+    st.title("China's Market")
     
-#     last_china = china.index[-1]
-#     market_state_china = china['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+    last_china = china.index[-1]
+    market_state_china = china['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
 
     
-#     st.write(f" China's Market State: {market_state_china} - Last Update: {last_china}")
-#     # Crear gráfica de Plotly
-#     #china = china.rename(columns={'ma_price': 'Mov Avg.'})
-#     fig = chart_colors( china['ma_price'], china['ma_volume'], china['market_cases_'])
-#     fig.add_trace(go.Scatter(x=china.index, y=china['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.2))
+    st.write(f" China's Market State: {market_state_china} - Last Update: {last_china}")
+    # Crear gráfica de Plotly
+    #china = china.rename(columns={'ma_price': 'Mov Avg.'})
+    fig = chart_colors( china['ma_price'], china['ma_volume'], china['market_cases_'])
+    fig.add_trace(go.Scatter(x=china.index, y=china['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.2))
 
-#     # Mostrar gráfica en Streamlit
-#     st.plotly_chart(fig, use_container_width=True)
+    # Mostrar gráfica en Streamlit
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # with tab_india:
