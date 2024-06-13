@@ -263,18 +263,18 @@ with tab_china:
     st.plotly_chart(fig, use_container_width=True)
 
 
-# with tab_india:
-#     st.title("India's Market")
+with tab_india:
+    st.title("India's Market")
     
-#     last_india = india.index[-1]
-#     market_state_india = india['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
-#     st.write(f" India's Market State: {market_state_india} - Last Update: {last_india}")
-#     # Crear gráfica de Plotly
-#     fig = chart_colors( india['ma_price'], india['ma_volume'], india['market_cases_'])
-#     fig.add_trace(go.Scatter(x=india.index, y=india['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.2))
+    last_india = india.index[-1]
+    market_state_india = india['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+    st.write(f" India's Market State: {market_state_india} - Last Update: {last_india}")
+    # Crear gráfica de Plotly
+    fig = chart_colors( india['ma_price'], india['ma_volume'], india['market_cases_'])
+    fig.add_trace(go.Scatter(x=india.index, y=india['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.2))
 
-#     # Mostrar gráfica en Streamlit
-#     st.plotly_chart(fig, use_container_width=True)
+    # Mostrar gráfica en Streamlit
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # with tab_turkey:
