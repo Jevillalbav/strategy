@@ -21,10 +21,6 @@ try:
     tt = pd.read_csv(tt_file, index_col=0)
     metrics = pd.read_csv(metrics_file, index_col=0)
 
-    # prop_ = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/prop.csv', index_col=0, parse_dates=True)
-    # tt = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/trades.csv', index_col=0)
-    # metrics = pd.read_csv('https://raw.githubusercontent.com/Jevillalbav/strategy/d22d14cc755e52001a122a03a7d31585260a1a54/metrics.csv', index_col=0)
-
 
 except Exception as e:
     st.error(f"Error loading data: {e}")
@@ -173,9 +169,9 @@ st.subheader("Main Chart : Strategy + Return + Current Position")
 st.plotly_chart(fig, use_container_width=True)
 
 # Mostrar tabla tt
-st.subheader("Trade Data")
+st.subheader("Trades Overview since: " + str(prop_.index[0].date()))
 try:
-    st.dataframe(tt.style.format("{:.2f}"))
+    st.dataframe(tt.iloc[:4])
 except Exception as e:
     st.error(f"Error displaying Trade Data: {e}")
 
