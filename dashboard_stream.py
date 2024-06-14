@@ -66,7 +66,8 @@ st.sidebar.write("Select the date range to filter the data")
 st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
                     max_value=prop_.index.date[-1], 
                     value=st.session_state['filter_date'],
-                    key='filter_date', on_change=st.session_state['filter_date'])
+                    #key='filter_date', on_change=st.session_state['filter_date']
+                    )
 # Actualizar el estado de la sesión
 # st.session_state['filter_date'] = st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
 #                     max_value=prop_.index.date[-1], 
