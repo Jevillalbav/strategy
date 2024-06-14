@@ -50,8 +50,10 @@ try:
 except Exception as e:
     st.error(f"Error loading data: {e}")
 
-# Crear pestañas
-tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
+# # Crear pestañas
+# tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
+
+
 
 sidebar = st.sidebar
 # Sidebar
@@ -59,7 +61,19 @@ sidebar.title("Gold Strategy Dashboard")
 sidebar.subheader("Filter Date Range")
 sidebar.write("Select the date range to filter the data")
 
-add_slider = st.sidebar.slider("Select Date Range", min_value=prop_.index[0], max_value=prop_.index[-1])
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Tab Home
 with tab_home:
     # Título
