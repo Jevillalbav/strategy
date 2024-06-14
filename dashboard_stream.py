@@ -55,12 +55,13 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 
 
 
-sidebar = st.sidebar
+sidebar = st.sidebar()
 # Sidebar
-sidebar.title("Gold Strategy Dashboard")
 sidebar.subheader("Filter Date Range")
 sidebar.write("Select the date range to filter the data")
 
+with sidebar:
+    st.session_state['filter_date'] = st.date_input("Select the date range", [prop_.index[0], prop_.index[-1]], min_value=prop_.index[0], max_value=prop_.index[-1])
 
 
 
