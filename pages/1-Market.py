@@ -67,9 +67,9 @@ st.markdown('---')
 st.subheader(' Demand and Supply signals ')
 
 gold_file = 'data/gold_reader.csv'
-china_file = 'data/gold_reader.csv'
-india_file = 'data/gold_reader.csv'
-turkey_file = 'data/gold_reader.csv'
+china_file = 'data/china_reader.csv'
+india_file = 'data/india_reader.csv'
+turkey_file = 'data/turkey_reader.csv'
 
 gold = pd.read_csv(gold_file, index_col=0 , parse_dates=True)
 china = pd.read_csv(china_file, index_col=0 , parse_dates=True)
@@ -96,11 +96,8 @@ fig = chart_colors_two_axis_no_markers( gold['ma_price'], gold['corr'])
 fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
 fig.add_hline(y=0, line_color='red', yref='y2', line_width=0.5)
 st.plotly_chart(fig, use_container_width=True)
-
-
-
-
 st.markdown('---')
+##########################
 st.subheader(' China Gold Demand and Supply Signals ')
 last_china = china.index.date[-1]
 market_state_last_china = china['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
@@ -109,4 +106,36 @@ last_pd = china['price'].iloc[-1]
 bef_last_pd = china['price'].iloc[-2]
 st.write(f" Up to {last_china} China gold has been on a {market_state_current_china} state. The last update per market state was {market_state_last_china}. Current Premium Discount is {last_pd:.2f} USD/oz. compared to yesterday's {bef_last_pd:.2f} USD/oz. ")
 
-china
+fig = chart_colors_two_axis( china['ma_price'], china['ma_volume'], china['market_cases'])
+fig.add_trace(go.Scatter(x=china.index, y=china['price'], mode='lines', name='China P/D', line=dict(color='white', width=1), opacity=0.2))
+st.plotly_chart(fig, use_container_width=True)
+st.markdown('---')
+##########################
+st.subheader(' India Gold Demand and Supply Signals ')
+last_india = india.index.date[-1]
+market_state_last_india = india['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+market_state_current_india = india['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+last_pd_india = india['price'].iloc[-1]
+bef_last_pd_india = india['price'].iloc[-2]
+st.write(f" Up to {last_india} India gold has been on a {market_state_current_india} state. The last update per market state was {market_state_last_india}. Current Premium Discount is {last_pd_india:.2f} USD/oz. compared to yesterday's {bef_last_pd_india:.2f} USD/oz. ")
+
+fig = chart_colors_two_axis( india['ma_price'], india['ma_volume'], india['market_cases'])
+fig.add_trace(go.Scatter(x=india.index, y=india['price'], mode='lines', name='India P/D', line=dict(color='white', width=1), opacity=0.2))
+st.plotly_chart(fig, use_container_width=True)
+st.markdown('---')
+##########################
+st.subheader(' Turkey Gold Demand and Supply Signals ')
+last_turkey = turkey.index.date[-1]
+market_state_last_turkey = turkey['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+market_state_current_turkey = turkey['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+last_pd_turkey = turkey['price'].iloc[-1]
+bef_last_pd_turkey = turkey['price'].iloc[-2]
+st.write(f" Up to {last_turkey} Turkey gold has been on a {market_state_current_turkey} state. The last update per market state was {market_state_last_turkey}. Current Premium Discount is {last_pd_turkey:.2f} USD/oz. compared to yesterday's {bef_last_pd_turkey:.2f} USD/oz. ")
+
+fig = chart_colors_two_axis( turkey['ma_price'], turkey['ma_volume'], turkey['market_cases'])
+fig.add_trace(go.Scatter(x=turkey.index, y=turkey['price'], mode='lines', name='Turkey P/D', line=dict(color='white', width=1), opacity=0.2))
+st.plotly_chart(fig, use_container_width=True)
+st.markdown('---')
+##########################
+
+
