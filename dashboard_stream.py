@@ -60,7 +60,7 @@ st.session_state['filter_date'] = (prop_.index.date[0], prop_.index.date[-1])
 
 def filter_date_range():
     #if date_range != st.session_state['filter_date']:
-    st.session_state['filter_date'] = date_range
+    return st.session_state['filter_date'] = date_range
         
 
 
