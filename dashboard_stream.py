@@ -60,7 +60,7 @@ with tab_home:
 
     st.session_state['filter_date'] = [prop_.index[0], prop_.index[-1]]
 
-    st.session_state = st.session_state.sync()
+    st.session_state
 
 
     st.subheader("Gold Market - State")
