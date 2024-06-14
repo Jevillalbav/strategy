@@ -22,15 +22,8 @@ def chart_colors(left, right, cases):
     return fig
 
 ##############################################################################################################################################
-
 # Configurar Streamlit
 st.set_page_config(page_title="Gold Strategy", page_icon=":moneybag:", layout="wide", initial_sidebar_state="expanded")
-
-
-with open("styles/corners.css") as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-
 
 # Leer datos desde archivos locales
 prop_file =  'data/prop.csv'
