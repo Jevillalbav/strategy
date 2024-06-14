@@ -87,3 +87,11 @@ st.write(f" Up to {last_world} world gold has been on a {market_state_current} s
 fig = chart_colors_two_axis( gold['ma_price'], gold['ma_volume'], gold['market_cases'])
 fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
 st.plotly_chart(fig, use_container_width=True)
+
+st.markdown('---')
+st.subheader(' Gold Price vs Volume Cross Correlation')
+
+fig = chart_colors_two_axis_no_markers( gold['ma_price'], gold['corr'])
+fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
+
+st.plotly_chart(fig, use_container_width=True)
