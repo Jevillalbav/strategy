@@ -108,3 +108,5 @@ market_state_current_china = china['market_cases'].map({0: ' No Signal', 1: ' Su
 last_pd = china['price'].iloc[-1]
 bef_last_pd = china['price'].iloc[-2]
 st.write(f" Up to {last_china} China gold has been on a {market_state_current_china} state. The last update per market state was {market_state_last_china}. Current Premium Discount is {last_pd:.2f} USD/oz. compared to yesterday's {bef_last_pd:.2f} USD/oz. ")
+
+china
