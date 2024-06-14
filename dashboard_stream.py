@@ -59,11 +59,7 @@ sidebar.title("Gold Strategy Dashboard")
 sidebar.subheader("Filter Date Range")
 sidebar.write("Select the date range to filter the data")
 
-# Filtrar por fecha
-with sidebar:
-    # Creo un slider de fecha
-    date_range = st.slider("Select Date Range", min_value=prop_.index[0], max_value=prop_.index[-1], value=[prop_.index[0], prop_.index[-1]])
-
+add_slider = st.sidebar.slider("Select Date Range", min_value=prop_.index[0], max_value=prop_.index[-1])
 # Tab Home
 with tab_home:
     # Título
