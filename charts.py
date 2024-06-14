@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import datetime as dt
 
+
 def chart_colors_two_axis(left, right, cases):
     siz = 5
     siz = cases.map({0: 0, 1: siz, 2: siz, 3: siz, 4: siz})
@@ -21,6 +22,7 @@ def chart_colors_two_axis(left, right, cases):
     yaxis2 = dict(overlaying='y', side='right', showgrid=False, tickformat = ',.2f', title=right.name, zeroline=False),
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
+
 def chart_colors_one_axis(left, cases):
     siz = 5
     siz = cases.map({0: 0, 1: siz, 2: siz, 3: siz, 4: siz})
@@ -36,6 +38,7 @@ def chart_colors_one_axis(left, cases):
     yaxis_tickformat = ',.0f',
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
+
 def chart_colors_two_axis_no_markers(left, right):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=left.index, y=left           , mode='lines', 
@@ -49,8 +52,8 @@ def chart_colors_two_axis_no_markers(left, right):
     yaxis2 = dict(overlaying='y', side='right', showgrid=False, tickformat = ',.2f', title=right.name, zeroline=False),
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
-def chart_colors_one_axis_no_markers(left):
 
+def chart_colors_one_axis_no_markers(left):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=left.index, y=left           , mode='lines', 
                             line=dict(color='gray', width=1), opacity=1, hoverinfo='skip', name= left.name))
@@ -60,7 +63,3 @@ def chart_colors_one_axis_no_markers(left):
     yaxis_tickformat = ',.0f',
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
-
-st.title('Market Data')
-st.markdown('---')
-
