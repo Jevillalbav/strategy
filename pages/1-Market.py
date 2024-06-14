@@ -18,6 +18,7 @@ def chart_colors_two_axis(left, right, cases):
     xaxis_title='Date',
     yaxis_title= left.name,
     yaxis_tickformat = ',.0f',
+    yaxis_showgrid=False,
     yaxis2 = dict(overlaying='y', side='right', showgrid=False, tickformat = ',.2f', title=right.name, zeroline=False),
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
@@ -33,6 +34,7 @@ def chart_colors_one_axis(left, cases):
     fig.update_layout(
     xaxis_title='Date',
     yaxis_title= left.name,
+    yaxis_showgrid=False,
     yaxis_tickformat = ',.0f',
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
@@ -45,6 +47,7 @@ def chart_colors_two_axis_no_markers(left, right):
     fig.update_layout(
     xaxis_title='Date',
     yaxis_title= left.name,
+    yaxis_showgrid=False,
     yaxis_tickformat = ',.0f',
     yaxis2 = dict(overlaying='y', side='right', showgrid=False, tickformat = ',.2f', title=right.name, zeroline=False),
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
@@ -56,6 +59,7 @@ def chart_colors_one_axis_no_markers(left):
                             line=dict(color='gray', width=1), opacity=1, hoverinfo='skip', name= left.name))
     fig.update_layout(
     xaxis_title='Date',
+    yaxis_showgrid=False,
     yaxis_title= left.name,
     yaxis_tickformat = ',.0f',
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
