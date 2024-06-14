@@ -51,7 +51,7 @@ except Exception as e:
     st.error(f"Error loading data: {e}")
 
 # # Crear pestañas
-# tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
+tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
 
 
 
