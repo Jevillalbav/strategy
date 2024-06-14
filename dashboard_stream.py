@@ -35,7 +35,6 @@ india_file = 'data/india_reader.csv'
 turkey_file = 'data/turkey_reader.csv'
 trade_history = 'data/trade_history.csv'
 
-## comentario dejado aqui
 # ##############################################################################################################################################
 # Leer los datos
 try:
@@ -48,15 +47,8 @@ try:
     turkey = pd.read_csv(turkey_file, index_col=0, parse_dates=True).loc[ prop_.index[0]:]
     trade_history = pd.read_csv(trade_history)
 
-
-
-
 except Exception as e:
     st.error(f"Error loading data: {e}")
-
-
-
-
 
 # Crear pestañas
 tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
