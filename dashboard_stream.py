@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import datetime as dt
-
 def chart_colors(left, right, cases):
     siz = 5
     siz = cases.map({0: 0, 1: siz, 2: siz, 3: siz, 4: siz})
