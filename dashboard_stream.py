@@ -57,7 +57,6 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
-    'Edicion 1 '
 
 
     st.subheader("Gold Market - State")
