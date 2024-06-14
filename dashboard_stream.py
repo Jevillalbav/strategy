@@ -54,7 +54,7 @@ except Exception as e:
 tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
 
 
-st.session_state['filter_date'] = [prop_.index[0].date(), prop_.index[-1].date()]
+st.session_state['filter_date'] = (prop_.index[0], prop_.index[-1])
 
 st.session_state
 
