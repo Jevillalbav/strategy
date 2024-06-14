@@ -39,9 +39,9 @@ def chart_colors_one_axis(left, cases):
 def chart_colors_two_axis_no_markers(left, right):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=left.index, y=left           , mode='lines', 
-                            line=dict(color='gray', width=1), opacity=1, hoverinfo='skip', name= left.name))
+                            line=dict(color='white', width=1), opacity=1, hoverinfo='skip', name= left.name))
     fig.add_trace(go.Scatter(x=right.index, y= right, mode='lines', name=right.name,
-                                line = dict(color='pink', width=0.4) , yaxis='y2', opacity=0.7))
+                                line = dict(color='pink', width=0.4) , yaxis='y2', opacity=0.9))
     fig.update_layout(
     xaxis_title='Date',
     yaxis_title= left.name,
@@ -90,6 +90,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.markdown('---')
 st.subheader(' Gold Price vs Volume Cross Correlation')
+st.markdown('Cross correlation is currently at: {gold["corr"].iloc[-1]:.2f}')
 
 fig = chart_colors_two_axis_no_markers( gold['ma_price'], gold['corr'])
 fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
