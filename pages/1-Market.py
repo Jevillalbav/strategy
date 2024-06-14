@@ -76,3 +76,12 @@ china = pd.read_csv(china_file, index_col=0 , parse_dates=True)
 india = pd.read_csv(india_file, index_col=0 , parse_dates=True)
 turkey = pd.read_csv(turkey_file, index_col=0 , parse_dates=True)
 
+
+last_world = gold.index.date[-1]
+market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+market_state_current = gold['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+st.write(f" Up to {last_world} world gold has been on a {market_state_current} state. The last update per market state was {market_state_last}.")
+# Crear gráfica de Plotly
+fig = chart_colors_two_axis( gold['ma_price'], gold['ma_volume'], gold['market_cases'])
+fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
+st.plotly_chart(fig, use_container_width=True)
