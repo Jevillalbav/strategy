@@ -58,6 +58,9 @@ with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
 
+    st.session_state 
+    
+
 
     st.subheader("Gold Market - State")
     last_world = gold.index.date[-1]
