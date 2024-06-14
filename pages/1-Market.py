@@ -97,6 +97,9 @@ fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='Lond
 fig.add_hline(y=0, line_color='red', yref='y2', line_width=0.5)
 st.plotly_chart(fig, use_container_width=True)
 
+
+
+
 st.markdown('---')
 st.subheader(' China Gold Demand and Supply Signals ')
 last_china = china.index.date[-1]
@@ -104,4 +107,4 @@ market_state_last_china = china['market_cases_'].map({0: 'No Signal', 1: ' Suppl
 market_state_current_china = china['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
 last_pd = china['price'].iloc[-1]
 bef_last_pd = china['price'].iloc[-2]
-st.write(f" Up to {last_world} China gold has been on a {market_state_current} state. The last update per market state was {market_state_last}. Current Premium Discount is {last_price:.2f} USD/oz. compared to yesterday's {bef_last_price:.2f} USD/oz. ")
+st.write(f" Up to {last_china} China gold has been on a {market_state_current_china} state. The last update per market state was {market_state_last_china}. Current Premium Discount is {last_pd:.2f} USD/oz. compared to yesterday's {bef_last_pd:.2f} USD/oz. ")
