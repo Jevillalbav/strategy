@@ -58,9 +58,9 @@ with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
 
-    st.session_state 
     st.session_state['filter_date'] = [prop_.index[0], prop_.index[-1]]
 
+    st.session_state = st.session_state.sync()
 
 
     st.subheader("Gold Market - State")
