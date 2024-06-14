@@ -94,6 +94,45 @@ st.markdown(f'Cross correlation is currently at: {gold["corr"].iloc[-1]:.0%}, co
 
 fig = chart_colors_two_axis_no_markers( gold['ma_price'], gold['corr'])
 fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
-fig.add_hline(y=0, line_color='red', yref='y2')
-
+fig.add_hline(y=0, line_color='red', yref='y2', line_width=0.5)
 st.plotly_chart(fig, use_container_width=True)
+
+st.markdown('---')
+st.subheader(' China Gold Demand and Supply Signals ')
+last_world = china.index.date[-1]
+market_state_last = china['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+market_state_current = china['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+last_price = china['price'].iloc[-1]
+bef_last_price = china['price'].iloc[-2]
+st.write(f" Up to {last_world} China gold has been on a {market_state_current} state. The last update per market state was {market_state_last}. Current Premium Discount is {last_price:.2f} USD/oz. compared to yesterday's {bef_last_price:.2f} USD/oz. ")
+
+fig = chart_colors_two_axis( china['ma_price'], china['ma_volume'], china['market_cases'])
+fig.add_trace(go.Scatter(x=china.index, y=china['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.4))
+st.plotly_chart(fig, use_container_width=True)
+
+st.markdown('---')
+st.subheader(' India Gold Demand and Supply Signals ')
+last_world = india.index.date[-1]
+market_state_last = india['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+market_state_current = india['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+last_price = india['price'].iloc[-1]
+bef_last_price = india['price'].iloc[-2]
+st.write(f" Up to {last_world} India gold has been on a {market_state_current} state. The last update per market state was {market_state_last}. Current Premium Discount is {last_price:.2f} USD/oz. compared to yesterday's {bef_last_price:.2f} USD/oz. ")
+
+fig = chart_colors_two_axis( india['ma_price'], india['ma_volume'], india['market_cases'])
+fig.add_trace(go.Scatter(x=india.index, y=india['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.4))
+st.plotly_chart(fig, use_container_width=True)
+
+st.markdown('---')
+st.subheader(' Turkey Gold Demand and Supply Signals ')
+last_world = turkey.index.date[-1]
+market_state_last = turkey['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+market_state_current = turkey['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+last_price = turkey['price'].iloc[-1]
+bef_last_price = turkey['price'].iloc[-2]
+st.write(f" Up to {last_world} Turkey gold has been on a {market_state_current} state. The last update per market state was {market_state_last}. Current Premium Discount is {last_price:.2f} USD/oz. compared to yesterday's {bef_last_price:.2f} USD/oz. ")
+
+fig = chart_colors_two_axis( turkey['ma_price'], turkey['ma_volume'], turkey['market_cases'])
+fig.add_trace(go.Scatter(x=turkey.index, y=turkey['price'], mode='lines', name='P/D', line=dict(color='white', width=1), opacity=0.4))
+st.plotly_chart(fig, use_container_width=True)
+st.markdown('---')
