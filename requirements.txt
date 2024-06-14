@@ -3,4 +3,3 @@ numpy
 empyrical
 streamlit
 plotly
-foo
