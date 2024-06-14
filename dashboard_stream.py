@@ -55,19 +55,15 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 
 
 
-
-
-def filter_date_range():
-    if date_range != st.session_state['filter_date']:
-        st.session_state['filter_date'] = date_range
     
-date_range = (prop_.index.date[0], prop_.index.date[-1])
+date_range = '2021-01-01', '2024-12-31'
 st.session_state['filter_date'] = date_range
 
-st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+st.sidebar.slider("Select the date range", 
+                min_value=prop_.index.date[0],
                 max_value=prop_.index.date[-1], 
                 value=(prop_.index.date[0], prop_.index.date[-1]),
-                key='filter_date',
+                #key='filter_date',
                 #on_change=filter_date_range
                 )
 
@@ -82,9 +78,6 @@ with tab_home:
 
     st.markdown("----")
     
-
-
-
     st.subheader("Gold Market - State")
     last_world = gold.index.date[-1]
     market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
@@ -95,7 +88,6 @@ with tab_home:
     fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("----")
-
 
     def crear_chart():
         # Crear gráfica de Plotly
