@@ -76,7 +76,7 @@ with tab_home:
     st.markdown("----")
 
     'sesssion state', st.session_state['filter_date']
-    st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+    st.slider("Select the date range", min_value=prop_.index.date[0],
                     max_value=prop_.index.date[-1], 
                     value=(prop_.index.date[0], prop_.index.date[-1]),
                     key='filter_date')
