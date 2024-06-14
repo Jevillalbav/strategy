@@ -53,6 +53,12 @@ except Exception as e:
 # Crear pestañas
 tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
 
+sidebar = st.sidebar
+# Sidebar
+sidebar.title("Gold Strategy Dashboard")
+
+
+
 # Tab Home
 with tab_home:
     # Título
