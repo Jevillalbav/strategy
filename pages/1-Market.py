@@ -66,10 +66,10 @@ st.markdown('---')
 
 st.subheader(' Demand and Supply signals ')
 
-gold_file = 'Jevillalbav/strategy/data/gold_reader.csv'
-china_file = 'Jevillalbav/strategy/data/gold_reader.csv'
-india_file = 'Jevillalbav/strategy/data/gold_reader.csv'
-turkey_file = 'Jevillalbav/strategy/data/gold_reader.csv'
+gold_file = 'data/gold_reader.csv'
+china_file = 'data/gold_reader.csv'
+india_file = 'data/gold_reader.csv'
+turkey_file = 'data/gold_reader.csv'
 
 gold = pd.read_csv(gold_file, index_col=0 , parse_dates=True)
 china = pd.read_csv(china_file, index_col=0 , parse_dates=True)
