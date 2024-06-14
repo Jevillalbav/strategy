@@ -76,7 +76,7 @@ date_range = st.sidebar.slider("Select the date range", min_value=prop_.index.da
 
 if st.session_state['filter_date'] != date_range:
     st.session_state['filter_date'] = date_range
-    #st.experimental_rerun()
+    st.experimental_rerun()
 
 
 
