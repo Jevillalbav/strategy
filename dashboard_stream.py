@@ -60,8 +60,7 @@ sidebar.subheader("Filter Date Range")
 sidebar.write("Select the date range to filter the data")
 
 # Filtrar por fecha
-slider = sidebar.slider("Select Date Range", min_value=prop_.index[0], max_value=prop_.index[-1], value=[prop_.index[0], prop_.index[-1]])
-
+# slider = sidebar.slider("Select Date Range", min_value=prop_.index[0], max_value=prop_.index[-1], value=[prop_.index[0], prop_.index[-1]])
 
 # Tab Home
 with tab_home:
