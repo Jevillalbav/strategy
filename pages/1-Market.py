@@ -94,5 +94,6 @@ st.markdown(f'Cross correlation is currently at: {gold["corr"].iloc[-1]:.0%}, co
 
 fig = chart_colors_two_axis_no_markers( gold['ma_price'], gold['corr'])
 fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
+fig.add_hline(y=0, line_color='red', yref='y2')
 
 st.plotly_chart(fig, use_container_width=True)
