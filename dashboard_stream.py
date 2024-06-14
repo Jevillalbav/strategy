@@ -63,8 +63,7 @@ st.session_state['filter_date'] = ("2021-01-01", "2024-12-31")
 date_range = st.sidebar.slider("Select the date range", 
                 min_value=prop_.index.date[0],
                 max_value=prop_.index.date[-1], 
-                value=(prop_.index.date[0], prop_.index.date[-1]),
-                format="YYYY-MM-DD")
+                value=(prop_.index.date[0], prop_.index.date[-1]))
 
 
 # Tab Home
@@ -73,11 +72,7 @@ with tab_home:
     st.title("Gold Strategy Dashboard")
     st.markdown("----")
 
-    'sesssion state', st.session_state['filter_date']
-
-    date_range
     st.session_state['filter_date'] = date_range
-    st.write(st.session_state['filter_date'])
 
     st.markdown("----")
     
