@@ -35,7 +35,7 @@ india_file = 'data/india_reader.csv'
 turkey_file = 'data/turkey_reader.csv'
 trade_history = 'data/trade_history.csv'
 
-
+## comentario dejado aqui
 # ##############################################################################################################################################
 # Leer los datos
 try:
