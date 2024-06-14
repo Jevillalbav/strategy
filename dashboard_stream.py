@@ -58,6 +58,11 @@ st.session_state['filter_date'] = [prop_.index[0], prop_.index[-1]]
 
 st.session_state
 
+filtered_data = prop_.loc[st.session_state['filter_date'][0]:st.session_state['filter_date'][1]]
+st.write(filtered_data)
+
+
+
 st.sidebar.write("Select the date range to filter the data")
 st.sidebar.slider("Select the date range", min_value=prop_.index[0],
                     max_value=prop_.index[-1], 
@@ -80,6 +85,7 @@ with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
 
+    
 
 
 
