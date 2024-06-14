@@ -72,6 +72,7 @@ india_file = 'data/india_reader.csv'
 turkey_file = 'data/turkey_reader.csv'
 
 gold = pd.read_csv(gold_file, index_col=0 , parse_dates=True)
+gold['corr'] = gold['corr'].ewm(span=15).mean()
 china = pd.read_csv(china_file, index_col=0 , parse_dates=True)
 india = pd.read_csv(india_file, index_col=0 , parse_dates=True)
 turkey = pd.read_csv(turkey_file, index_col=0 , parse_dates=True)
