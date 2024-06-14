@@ -58,23 +58,12 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 
 st.session_state['filter_date'] = (prop_.index.date[0], prop_.index.date[-1])
 
-# def filter_date_range():
-#     st.session_state['filter_date'] = date_range
-        
 
-
-st.sidebar.write("Select the date range to filter the data")
-st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
-                    max_value=prop_.index.date[-1], 
-                    value=(prop_.index.date[0], prop_.index.date[-1]),
-                    key='filter_date')
-
-
-
-
-
-
-
+# st.sidebar.write("Select the date range to filter the data")
+# st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+#                     max_value=prop_.index.date[-1], 
+#                     value=(prop_.index.date[0], prop_.index.date[-1]),
+#                     key='filter_date')
 
 
 
@@ -86,7 +75,11 @@ with tab_home:
     st.title("Gold Strategy Dashboard")
     st.markdown("----")
 
-    st.session_state
+    'sesssion state', st.session_state['filter_date']
+    st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+                    max_value=prop_.index.date[-1], 
+                    value=(prop_.index.date[0], prop_.index.date[-1]),
+                    key='filter_date')
 
     
 
