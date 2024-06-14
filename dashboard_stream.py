@@ -77,6 +77,7 @@ with tab_home:
     'sesssion state', st.session_state['filter_date']
 
     date_range
+    st.session_state['filter_date'] = date_range
 
     st.markdown("----")
     
