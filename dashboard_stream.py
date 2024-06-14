@@ -56,7 +56,6 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 
 st.session_state['filter_date'] = (prop_.index.date[0], prop_.index.date[-1])
 
-st.session_state
 
 # filtered_data = prop_.loc[st.session_state['filter_date'][0]:st.session_state['filter_date'][1]]
 # st.write(filtered_data)
@@ -64,7 +63,12 @@ st.session_state
 
 
 st.sidebar.write("Select the date range to filter the data")
-st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+# st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+#                     max_value=prop_.index.date[-1], 
+#                     value=st.session_state['filter_date'],
+#                     key='filter_date')
+# Actualizar el estado de la sesión
+st.session_state['filter_date'] = st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
                     max_value=prop_.index.date[-1], 
                     value=st.session_state['filter_date'],
                     key='filter_date')
