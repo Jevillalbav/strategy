@@ -59,13 +59,12 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 st.session_state['filter_date'] = (prop_.index.date[0], prop_.index.date[-1])
 
 def filter_date_range():
-    #if date_range != st.session_state['filter_date']:
-    return st.session_state['filter_date'] = date_range
+    st.session_state['filter_date'] = date_range
         
 
 
 st.sidebar.write("Select the date range to filter the data")
-date_range = st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
+date_range = st.slider("Select the date range", min_value=prop_.index.date[0],
                     max_value=prop_.index.date[-1], 
                     value=st.session_state['filter_date'],
                     key='filter_date', on_change= filter_date_range)
