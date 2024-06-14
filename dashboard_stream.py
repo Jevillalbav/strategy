@@ -56,16 +56,15 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 
 
     
+# Valor inicial de la variable de sesión
+st.session_state['filter_date'] = ("2021-01-01", "2024-12-31")
 
-st.session_state['filter_date'] = ('2021-01-01', '2024-12-31')
-
+# Filtro de fecha
 date_range = st.sidebar.slider("Select the date range", 
                 min_value=prop_.index.date[0],
                 max_value=prop_.index.date[-1], 
                 value=(prop_.index.date[0], prop_.index.date[-1]),
-                #key='filter_date',
-                #on_change=filter_date_range
-                )
+                format="YYYY-MM-DD")
 
 
 # Tab Home
