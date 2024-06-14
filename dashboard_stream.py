@@ -53,26 +53,13 @@ except Exception as e:
 # # Crear pestañas
 tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
 
-
 st.session_state['filter_date'] = (prop_.index.date[0], prop_.index.date[-1])
-
-
-# filtered_data = prop_.loc[st.session_state['filter_date'][0]:st.session_state['filter_date'][1]]
-# st.write(filtered_data)
-
-
 
 st.sidebar.write("Select the date range to filter the data")
 date_range = st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
                     max_value=prop_.index.date[-1], 
                     value=st.session_state['filter_date'],
                     key='filter_date')
-
-# Actualizar el estado de la sesión
-# st.session_state['filter_date'] = st.sidebar.slider("Select the date range", min_value=prop_.index.date[0],
-#                     max_value=prop_.index.date[-1], 
-#                     value=st.session_state['filter_date'],
-#                     key='filter_date')
 
 if st.session_state['filter_date'] != date_range:
     st.session_state['filter_date'] = date_range
@@ -91,6 +78,9 @@ if st.session_state['filter_date'] != date_range:
 with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
+    st.markdown("----")
+
+    st.session_state
 
     
 
