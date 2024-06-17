@@ -50,15 +50,32 @@ try:
 except Exception as e:
     st.error(f"Error loading data: {e}")
 
-# Crear pestañas
+# # Crear pestañas
 tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "China's Market", "India's Market", "Turkey's Market"])
+
+
+
+    
+# Valor inicial de la variable de sesión
+st.session_state['filter_date'] = ("2021-01-01", "2024-12-31")
+
+# Filtro de fecha
+date_range = st.sidebar.slider("Select the date range", 
+                min_value=prop_.index.date[0],
+                max_value=prop_.index.date[-1], 
+                value=(prop_.index.date[0], prop_.index.date[-1]))
+
 
 # Tab Home
 with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
+    st.markdown("----")
 
+    st.session_state['filter_date'] = date_range
 
+    st.markdown("----")
+    
     st.subheader("Gold Market - State")
     last_world = gold.index.date[-1]
     market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
@@ -69,7 +86,6 @@ with tab_home:
     fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("----")
-
 
     def crear_chart():
         # Crear gráfica de Plotly
