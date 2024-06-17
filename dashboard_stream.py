@@ -100,7 +100,7 @@ with tab_home:
                 titlefont=dict(color='rgba(227, 202, 134,1)'),
                 tickfont=dict(color='rgba(227, 202, 134,1)'),
                 tickformat='$,.0f',
-                range=[500, prop_['gold'].max() * 1.2],
+                range=[1200, prop_['gold'].max() * 1.2],
                 dtick=100,
                 separatethousands=True
             ),
