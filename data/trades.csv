@@ -1,7 +1,7 @@
-,Negative
-Trades Done,0
-Proportion,nan%
-% Return,nan%
-USD Return,nan
-Expected % Return,nan%
-Expected USD Return,nan
+,Negative,Positive
+Trades Done,4,35
+Proportion,10.26%,89.74%
+% Return,-1.68%,3.22%
+USD Return,-39.42,69.58
+Expected % Return,-0.17%,2.89%
+Expected USD Return,-4.04,62.45
