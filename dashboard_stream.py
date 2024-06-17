@@ -199,7 +199,7 @@ with tab_home:
             yaxis='y2',
             fill='tozeroy',
             fillcolor='rgba(0, 255, 0, 0.3)',
-            opacity=0.5,
+            opacity=0.2,
             hoverinfo='y+name'
         ))
         fig.add_trace(go.Scatter(
