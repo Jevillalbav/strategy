@@ -70,22 +70,8 @@ tab_home , tab_china , tab_india , tab_turkey   = st.tabs(["Home - Strategy", "C
 with tab_home:
     # Título
     st.title("Gold Strategy Dashboard")
-    st.markdown("----")
-
     #st.session_state['filter_date'] = date_range
 
-    st.markdown("----")
-    
-    st.subheader("Gold Market - State")
-    last_world = gold.index.date[-1]
-    market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
-    market_state_current = gold['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
-    st.write(f" Up to {last_world} world gold has been on a {market_state_current} state. The last update per market state was {market_state_last}.")
-    # Crear gráfica de Plotly
-    fig = chart_colors( gold['ma_price'], gold['ma_volume'], gold['market_cases_'])
-    fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
-    st.plotly_chart(fig, use_container_width=True)
-    st.markdown("----")
 
     def crear_chart():
         # Crear gráfica de Plotly
@@ -114,7 +100,7 @@ with tab_home:
                 titlefont=dict(color='rgba(227, 202, 134,1)'),
                 tickfont=dict(color='rgba(227, 202, 134,1)'),
                 tickformat='$,.0f',
-                range=[500, prop_['gold'].max() * 1.2],
+                range=[1200, prop_['gold'].max() * 1.2],
                 dtick=100,
                 separatethousands=True
             ),
@@ -124,7 +110,7 @@ with tab_home:
                 side='right',
                 position=0.95,
                 zeroline=False,
-                range=[0, 20000],
+                range=[0, 15000],
                 dtick=1000,
                 tickformat=',.1f',
                 visible=True,
@@ -138,8 +124,8 @@ with tab_home:
                 side='right',
                 position=0.85,
                 hoverformat=',.0%',
-                range=[-1.2, 3],
-                dtick=0.1,
+                range=[-0.4, 1.6],
+                dtick=0.2,
                 showgrid=False,
                 tickangle=-45,
                 zeroline=False,
@@ -156,8 +142,6 @@ with tab_home:
             ## chart layourt rounded corners
             
         )
-
-        #fig.update_traces(marker_line_color='rgba(0,0,0,0)')
 
         fig.add_trace(go.Scatter(
             x=prop_.index,
@@ -214,8 +198,8 @@ with tab_home:
             name='Open Size',
             yaxis='y2',
             fill='tozeroy',
-            fillcolor='rgba(0, 255, 0, 0.3)',
-            opacity=0.5,
+            fillcolor='rgba(0, 255, 0, 0.05)',
+            opacity=0.09,
             hoverinfo='y+name'
         ))
         fig.add_trace(go.Scatter(
@@ -234,6 +218,24 @@ with tab_home:
     # Archivo plotly con bordes redondeados
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("----")
+
+
+    
+    st.subheader("Gold Market - State")
+    last_world = gold.index.date[-1]
+    market_state_last = gold['market_cases_'].map({0: 'No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+    market_state_current = gold['market_cases'].map({0: ' No Signal', 1: ' Supply Scarcity', 2: 'Demand Abundance', 3: 'Demand Scarcity', 4: 'Supply Abundance'}).iloc[-1]
+    st.write(f" Up to {last_world} world gold has been on a {market_state_current} state. The last update per market state was {market_state_last}.")
+    # Crear gráfica de Plotly
+    fig = chart_colors( gold['ma_price'], gold['ma_volume'], gold['market_cases'])
+    fig.add_trace(go.Scatter(x=gold.index, y=gold['price'], mode='lines', name='London FIX', line=dict(color='white', width=1), opacity=0.2))
+    st.plotly_chart(fig, use_container_width=True)
+    st.markdown("----")
+
+
+
+    
+    
 
     # Mostrar tabla tt
     st.subheader("Trades Overview since: " + str(prop_.index[0].date()))
