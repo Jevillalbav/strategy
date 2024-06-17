@@ -110,7 +110,7 @@ with tab_home:
                 side='right',
                 position=0.95,
                 zeroline=False,
-                range=[0, 10000],
+                range=[0, 15000],
                 dtick=1000,
                 tickformat=',.1f',
                 visible=True,
@@ -199,7 +199,7 @@ with tab_home:
             yaxis='y2',
             fill='tozeroy',
             fillcolor='rgba(0, 255, 0, 0.05)',
-            opacity=0.2,
+            opacity=0.09,
             hoverinfo='y+name'
         ))
         fig.add_trace(go.Scatter(
