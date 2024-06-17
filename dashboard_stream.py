@@ -138,7 +138,7 @@ with tab_home:
                 side='right',
                 position=0.85,
                 hoverformat=',.0%',
-                range=[-0.4, 1],
+                range=[-1.2, 3],
                 dtick=0.1,
                 showgrid=False,
                 tickangle=-45,
