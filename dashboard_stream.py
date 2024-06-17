@@ -297,8 +297,3 @@ with tab_turkey:
 
     # Mostrar gráfica en Streamlit
     st.plotly_chart(fig, use_container_width=True)
-
-
-
-
-
