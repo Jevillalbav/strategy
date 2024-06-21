@@ -4,6 +4,11 @@ import numpy as np
 import plotly.graph_objects as go
 import datetime as dt
 
+st.set_page_config(layout="wide")
+#3 Titulo
+st.title('Market Data')
+
+
 def chart_colors_two_axis(left, right, cases):
     siz = 8
     siz = cases.map({0: 0, 1: siz, 2: siz, 3: siz, 4: siz})
@@ -70,9 +75,7 @@ def chart_colors_one_axis_no_markers(left):
     width = 1200, height = 800, template='plotly_dark',  hovermode='x', showlegend=False)
     return fig
 
-st.set_page_config(layout="wide", page_title='Gold Strategy', page_icon=':moneybag:')
-#3 Titulo
-st.title('Market Data')
+
 
 #3 Leo datos de mercado
 gold_file = 'data/gold_reader.csv'
