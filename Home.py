@@ -6,7 +6,7 @@ import numpy as np
 
 
 # Configurar Streamlit
-st.set_page_config(page_title="Gold Strategy", page_icon=":moneybag:", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Gold Strategy", page_icon=":moneybag:", layout="wide")
 
 
 # Tittle
