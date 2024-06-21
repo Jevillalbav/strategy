@@ -216,8 +216,8 @@ st.plotly_chart(fig, use_container_width=True)
 st.subheader(" Montecarlo Simulation")
 
 
-montecarlo_type = st.sidebar.selectbox("Select Montecarlo Simulation", ["Bear", "Bull"])
-montecarlo_range = st.sidebar.selectbox("For which timeframe ? ", ["Now", "Year"])
+montecarlo_type = st.sidebar.selectbox("Select Montecarlo Simulation", ["Bull", "Bear" ])
+montecarlo_range = st.sidebar.selectbox("For which timeframe ? ", [ "Year", "Now"])
 montecarlo_thresholds = st.sidebar.multiselect("Select thresholds", bear_now_price.columns.tolist(), default=['10%', '50%', '90%'])
 
 
@@ -225,11 +225,10 @@ st.session_state['montecarlo_type'] = montecarlo_type
 st.session_state['montecarlo_range'] = montecarlo_range
 st.session_state['montecarlo_thresholds'] = montecarlo_thresholds
 
-st.session_state['montecarlo_type']
-st.session_state['montecarlo_range']
-st.session_state['montecarlo_thresholds']
+# st.session_state['montecarlo_type']
+# st.session_state['montecarlo_range']
+# st.session_state['montecarlo_thresholds']
 
-st.subheader("Montecarlo Simulation Chart")
 def crear_montecarlo_chart(montecarlo_type, montecarlo_range, montecarlo_thresholds):
     fig = go.Figure()
 
@@ -243,9 +242,9 @@ def crear_montecarlo_chart(montecarlo_type, montecarlo_range, montecarlo_thresho
             showgrid=False,
             linecolor='white',
             linewidth=1,
-            domain=[0.05, 0.8],
-            hoverformat='%Y-%m-%d',
-            range=[bear_year_price.index[0], bear_now_price.index[-1] + pd.Timedelta(days=36)]),
+            domain=[0.05, 0.9],
+            hoverformat='%Y-%m-%d'),
+            #range=[bear_year_price.index[0], bear_now_price.index[-1] + pd.Timedelta(days=36)]),
         yaxis=dict(
             title='Price',
             side='left',
