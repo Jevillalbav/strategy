@@ -166,10 +166,19 @@ fig.add_scatter(x=gold.index, y=gold['price'], name='Gold',
                  line=dict(color='gold', width=1), mode='lines', showlegend=True, yaxis='y2', legendgroup='three', legendgrouptitle=dict(text='Gold'), legendrank=1)#, hovertemplate='<b>%{x}</b><br><br>Gold: %{y:,.0f}<extra></extra>')
 
 
+fig.add_scatter(x = gold.index , y= (gold['ma_price'] * 0) - 100000000 , opacity=0 , 
+                hoverinfo='x' , showlegend=False
+                )
+
+
+
 # ### legend should be horaizontal and on the top left corner
 fig.update_layout(legend=dict(x=0.01, y=1, bgcolor='rgba(18, 30, 48,0.7)', 
                                orientation='h', font=dict(size=12, color='white'), bordercolor='white', borderwidth=1),
                                )
+
+
+
 
 # ## add a vertical line for the current date
 fig.add_shape(type='line', x0=cftc.index[-1]  , y0=-700000, x1=cftc.index[-1], y1=700000, line=dict(color='rgba(245, 245, 245, 0.2)', width=1, dash='dash'), xref='x', yref='y1', layer='below')
