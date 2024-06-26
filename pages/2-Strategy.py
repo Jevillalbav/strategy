@@ -59,12 +59,6 @@ date_range = st.sidebar.slider("Select Strategy Date Range:",
                 max_value=prop_.index.date[-1], 
                 value=(prop_.index.date[0], prop_.index.date[-1]))
 
-
-# Filtro del montecarlo
-
-
-
-
 st.session_state['filter_date'] = date_range
 
 
