@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import datetime as dt
+import numpy as np
 
 # Load Data
 cn = pd.read_csv("data/consensus.csv", index_col=0, parse_dates=True)
@@ -69,7 +70,7 @@ def chart_consensus(year, report, banks_group):
         df = cn.loc[(cn['year_report'] == year) & (cn['month_report'] == report) & (cn['bank'].isin(banks_group))].copy().pivot_table(index='date_forecast', columns='bank', values='value')
         df.index = pd.to_datetime(df.index)
         df.loc[date_gold] = value_gold
-        df = df.sort_index()
+        df = df.sort_index().replace(0, np.nan)
         df = df.resample('D').last().interpolate(method='pchip')
         for i in df.columns:
             fig.add_trace(go.Scatter(x=df.index, y=df[i], mode='lines', name=i, line=dict(width=1)))
