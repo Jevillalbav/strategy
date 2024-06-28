@@ -258,7 +258,7 @@ def crear_montecarlo_chart(montecarlo_type, montecarlo_range, montecarlo_thresho
 
     ##3 Current price in White 
     fig.add_trace(go.Scatter( x= prop_.index, y= prop_['gold'], mode='lines', line=dict(color='white', width=2),
-        name='Current Price', hoverinfo='y+name'))
+        name='Current Price'))
 
 
     for threshold in montecarlo_thresholds:
