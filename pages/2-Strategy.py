@@ -237,8 +237,9 @@ def crear_montecarlo_chart(montecarlo_type, montecarlo_range, montecarlo_thresho
             linecolor='white',
             linewidth=1,
             domain=[0.05, 0.9],
-            hoverformat='%Y-%m-%d'),
+            hoverformat='%Y-%m-%d',
             range=[bear_year_price.index[0], bear_now_price.index[-1] + pd.Timedelta(days=36)]),
+    
         yaxis=dict(
             title='Price',
             side='left',
